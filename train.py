@@ -24,6 +24,7 @@ try:
     real_ = real.drop_duplicates().copy()
     real_["label"] = 1
     dataset = pd.concat([real_,fake_])
+    # Combine title and article text into one feature
     dataset["content"] = dataset["title"] + " " + dataset["text"]
 except FileNotFoundError:
     print("CSV files not found in /data folder.")
@@ -40,6 +41,16 @@ x_train_vec = vectorizer.fit_transform(x_train)
 x_test_vec = vectorizer.transform(x_test)
 model = LogisticRegression(max_iter=1000)
 model.fit(x_train_vec, y_train)
+
+#Evaluation
+y_pred = model.predict(x_test_vec)
+print("\nModel Evaluation:")
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Precision:", precision_score(y_test, y_pred))
+print("Recall:", recall_score(y_test, y_pred))
+print("F1 Score:", f1_score(y_test, y_pred))
+
+print("\nClassification Report:\n", classification_report(y_test, y_pred))
 
 #Save Artifacts
 joblib.dump(model, "model.pkl")

@@ -1,4 +1,4 @@
-# hybrid-fake-news-detector
+# Hybrid Fake News Detection using Logistic Regression + GenAI
 A machine learning and LLM hybrid system to detect misinformation using Logistic Regression and Gemini 2.5 Flash.
 
 # 🧠 Hybrid Fake News Detection System
@@ -28,6 +28,12 @@ This system:
 Input → ML → Confidence Check → LLM → Final Decision ✅
 ```
 👉 Combines **speed + reasoning + cost-efficiency**
+---
+📂 Dataset
+Fake and Real News Dataset (Kaggle)
+Link: https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset
+~44,000 news articles (Real + Fake)
+Used for training and evaluation
 ---
 ## 🧩 System Architecture
 ```text
